@@ -27,7 +27,7 @@ public class DetalhesDoTopicoDto implements Serializable {
 		this.titulo = topico.getTitulo();
 		this.mensagem = topico.getMensagem();
 		this.dataCriacao = topico.getDataCriacao();
-		this.nomeAutor = topico.getAutor().getEmail();
+		this.nomeAutor = topico.getAutor() != null ? topico.getAutor().getEmail() : null;
 		this.status = topico.getStatus();
 		this.respostas = new ArrayList<>();
 		this.respostas.addAll(topico.getRespostas().stream().map(RespostaDto::new).collect(Collectors.toList()));
